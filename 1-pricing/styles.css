@@ -81,15 +81,16 @@ body {
 }
 
 .features li {
-  padding: 0;
+  padding: 6px 0; 
   margin-bottom: 8px;
 }
 
 .features li::before {
-  content: "";
-  color: #22c55e;
+  content: "✓"; 
+  color: #22c55e; 
   font-weight: 700;
   margin-right: 8px;
+  margin-left: 10px;
 }
 
 .btn {
@@ -100,4 +101,17 @@ body {
   color: #ffffff;
   text-decoration: none;
   font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.plans {
+  display: flex;
+  justify-content: center;
+  align-items: center ;
+  gap: 20px;
+}
+
+.plan--featured {
+  border:  solid 2px #2563eb;
+  border-radius: 5px;
 }
