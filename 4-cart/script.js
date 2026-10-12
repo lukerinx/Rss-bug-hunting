@@ -63,14 +63,15 @@ function removeItem(id) {
 }
 
 function applyPromo() {
-  if ((promoInput.value = "SALE10")) {
-    discount = 0.1;
+  if (promoInput.value.trim() === "SALE10") {
+    discount = 0.1; 
+  } else {
+    discount = 0;   
   }
   renderCart();
 }
-
 function clearCart() {
-  cart.splice(0, 1);
+  cart = []; 
   renderCart();
 }
 
@@ -98,9 +99,13 @@ function renderCart() {
     total = total - total * discount;
   }
 
-  badgeEl.textContent = cart.length;
+  badgeEl.textContent = cart.reduce((sum, item) => sum + item.qty, 0);
   totalEl.textContent = total;
-  emptyMsg.hidden = true;
+ if (cart.length === 0) {
+    emptyMsg.hidden = false; 
+  } else {
+    emptyMsg.hidden = true; 
+  }
 }
 
 promoBtn.addEventListener("click", applyPromo);
